@@ -1,0 +1,16 @@
+<app-header [text]="'TODOS'"></app-header>
+<mat-card class="p-3">
+  <mat-form-field>
+    <mat-label>Search text</mat-label>
+
+    <input matInput [(ngModel)]="searchText" />
+  </mat-form-field>
+  <ng-container *ngFor="let todo of result | searchFilter: searchText">
+    <mat-card class="d-flex gap-1 mb-3 item">
+      <div>Todo item: {{ todo.text }}</div>
+      <div>Due date: {{ todo.date | date: "M/d/yy" }}</div>
+      <div>Due time: {{ todo.time | date: "HH:MM" }}</div>
+      <div>Description: {{ todo.description }}</div>
+    </mat-card>
+  </ng-container>
+</mat-card>

@@ -1,0 +1,45 @@
+<footer
+  class="d-flex m-3 gap-3 justify-content-between align-items-center"
+  [ngClass]="{ hidden: noTodosClass$ | async }"
+>
+  <div>
+    <span class="todo-count">
+      <strong>{{ activeCount$ | async }}</strong>
+      {{ itemsLeftText$ | async }}
+    </span>
+    <div class="d-flex gap-2">
+      <div>
+        <a
+          href="/"
+          [ngClass]="{ selected: (filter$ | async) === filterEnum.all }"
+          (click)="changeFilter($event, filterEnum.all)"
+        >
+          All
+        </a>
+      </div>
+      <div>
+        <a
+          href="/"
+          [ngClass]="{ selected: (filter$ | async) === filterEnum.active }"
+          (click)="changeFilter($event, filterEnum.active)"
+        >
+          Active
+        </a>
+      </div>
+      <div>
+        <a
+          href="/"
+          [ngClass]="{ selected: (filter$ | async) === filterEnum.completed }"
+          (click)="changeFilter($event, filterEnum.completed)"
+        >
+          Completed
+        </a>
+      </div>
+    </div>
+  </div>
+  <mat-checkbox
+    [checked]="isAllTodosSelected$ | async"
+    (change)="toggleAllTodos($event.checked)"
+    >Mark all as completed</mat-checkbox
+  >
+</footer>

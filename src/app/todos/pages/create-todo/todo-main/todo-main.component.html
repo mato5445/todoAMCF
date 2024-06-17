@@ -1,0 +1,6 @@
+<section>
+  <app-todo-item
+    *ngFor="let todo of visibleTodos$ | async"
+    [todo]="todo"
+  ></app-todo-item>
+</section>

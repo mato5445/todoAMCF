@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="mx-auto pt-5 pb-3">
+    <form
+      [formGroup]="todoNameForm"
+      class="d-flex flex-column"
+      (ngSubmit)="createList(todoNameForm.value)"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Type name of TODO</mat-label>
+        <input matInput formControlName="todoName" />
+      </mat-form-field>
+      <button
+        [disabled]="todoNameForm.invalid"
+        type="submit"
+        mat-flat-button
+        color="primary"
+      >
+        Create todo list
+      </button>
+    </form>
+  </div>
+</header>

@@ -1,0 +1,22 @@
+<mat-card class="mx-5 my-2 item">
+  <div class="px-5">
+    <div class="d-flex justify-content-between align-items-end">
+      <mat-checkbox
+        [checked]="todoProps.isCompleted"
+        (change)="toggleTodo()"
+      ></mat-checkbox>
+      <div class="d-flex gap-3" [ngClass]="{ done: todoProps.isCompleted }">
+        <p>{{ todoProps.text }}</p>
+        <p>{{ todoProps.description }}</p>
+        <p>{{ todoProps.date | date: "M/d/yy" }}</p>
+        <p>{{ todoProps.time | date: "HH:MM" }}</p>
+      </div>
+
+      <div>
+        <button mat-icon-button (click)="removeTodo()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>
