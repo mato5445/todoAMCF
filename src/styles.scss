@@ -1,0 +1,61 @@
+/* GLOBAL STYLES */
+@use '@angular/material' as mat;
+
+//@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+@use "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$custom-primary: (
+50: #eef5fb,
+100: #d4e5f5,
+200: #b7d4ee,
+300: #9ac2e7,
+400: #85b5e1,
+500: #6fa8dc,
+600: #67a0d8,
+700: #5c97d3,
+800: #528dce,
+900: #407dc5,
+   A100: #ffffff,
+   A200: #e3efff,
+   A400: #b0d3ff,
+   A700: #96c4ff,
+   contrast: (
+50: #000,
+100: #000,
+200: #000,
+300: #000,
+400: #000,
+500: #fff,
+600: #fff,
+700: #fff,
+800: #fff,
+900: #fff,
+   A100: #000,
+   A200: #fff,
+   A400: #fff,
+   A700: #fff,
+)
+);
+
+$custom-primary: mat.define-palette($custom-primary);
+$custom-accent: mat.define-palette($custom-primary);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme(
+(
+color: (
+primary: $custom-primary,
+          accent: $custom-accent,
+                   warn: $custom-warn,
+),
+)
+);
+
+@include mat.all-component-themes($custom-theme);
+
+
+@import 'styles/mat-card';
+@import 'styles/mat-form-field';

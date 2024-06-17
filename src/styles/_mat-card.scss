@@ -1,0 +1,9 @@
+mat-toolbar.mat-toolbar {
+  background: linear-gradient(#407dc5,#6FA7DB);
+}
+
+mat-card.mat-mdc-card:not(.item) {
+  background: #eeeeee;
+  box-shadow: 0 3px 10px 0 grey;
+}
+
