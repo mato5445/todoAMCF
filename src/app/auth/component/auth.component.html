@@ -1,0 +1,56 @@
+<mat-card class="bg-dark-subtle">
+  <mat-card-header class="mx-auto">
+    <mat-card-title class="mb-3"> SignIn/SignUp </mat-card-title>
+  </mat-card-header>
+
+  <form
+    [formGroup]="form"
+    #formRef="ngForm"
+    (ngSubmit)="onSubmit(form, formRef)"
+    class="mx-auto"
+  >
+    <div class="alert alert-danger" *ngIf="error">
+      <p>{{ error }}</p>
+    </div>
+    <mat-card-content>
+      <div class="d-flex flex-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput formControlName="email" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            required
+            minlength="6"
+          />
+          <mat-error *ngIf="form.controls.password.invalid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-card-actions class="gap-3">
+        <button
+          [disabled]="!form.valid"
+          mat-raised-button
+          color="accent"
+          type="submit"
+        >
+          {{ isLoginMode ? "login" : "sign up" }}
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          type="button"
+          (click)="onSwitchMode()"
+        >
+          switch to {{ isLoginMode ? "Sign up" : "Log in" }}
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </form>
+</mat-card>
