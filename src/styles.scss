@@ -1,7 +1,6 @@
 /* GLOBAL STYLES */
 @use '@angular/material' as mat;
 
-//@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
 @use "@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body { height: 100%; }
@@ -56,6 +55,6 @@ primary: $custom-primary,
 
 @include mat.all-component-themes($custom-theme);
 
-
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import 'styles/mat-card';
 @import 'styles/mat-form-field';
